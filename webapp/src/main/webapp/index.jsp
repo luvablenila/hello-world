@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 <body>
+<style>
+{backgroud-color:#808080};
+h1 {color:blue;}
+</style>
+<h1>kutty</kutty>
 <div class="wrapper">
 <section class="form signup">
 <header> Realtime Chat Application</header>
