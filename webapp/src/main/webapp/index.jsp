@@ -1,39 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Guru Registration Form</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="x-UA-compatible" content="ie=edge">
+<title>RealTime Chat Application" | project</title>
+<link rel="stylesheet"  href="../project1/style1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 <body>
-<h1>Guru Register Form</h1>
-<form action="guru_register" method="post">
-			<table style="with: 50%">
-				<tr>
-					<td>First Name</td>
-					<td><input type="text" name="first_name" /></td>
-				</tr>
-				<tr>
-					<td>Last Name</td>
-					<td><input type="text" name="last_name" /></td>
-				</tr>
-				<tr>
-					<td>UserName</td>
-					<td><input type="text" name="username" /></td>
-				</tr>
-					<tr>
-					<td>Password</td>
-					<td><input type="password" name="password" /></td>
-				</tr>
-				<tr>
-					<td>Address</td>
-					<td><input type="text" name="address" /></td>
-				</tr>
-				<tr>
-					<td>Contact No</td>
-					<td><input type="text" name="contact" /></td>
-				</tr></table>
-			<input type="submit" value="Submit" /></form>
+<div class="wrapper">
+<section class="form signup">
+<header> Realtime Chat Application</header>
+<form action="#">
+<div class="error-txt">This is an error message</div>
+<div class="name-details">
+<div class="field input">
+<label>First Name</label>
+<input type="text" placeholder="First Name">
+</div>
+
+<div class="field input">
+<label>Last Name</label>
+<input type="text" placeholder="Last Name">
+</div>
+</div>
+<div class="field input">
+<label>Email Address</label>
+<input type="text" placeholder="enter your email id">
+</div>
+<div class="field input">
+<label>Password</label>
+<input type="text" placeholder="Enter your password">
+</div>
+<div class="field image">
+<label>select image</label>
+<input type="file">
+</div>
+<div class="field button">
+<input type="submit" value="Enter chatroom">
+</div>
+<!--@import url('https://fonts.googleapis.com/css2? family=poppins:wght@200;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+text-decoration:none;-->
+ 
+</form>
+<div class="link">Already signed up?<a href="#">login now</a></div> 
+</section>
+</div>
 </body>
 </html>
