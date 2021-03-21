@@ -1,4 +1,8 @@
-const pswrdField = document.querySelector(".form input[type='password']"),
+<html>
+<head>
+ <title>Form Validation</title>
+ <script type="text/javascript">
+   const pswrdField = document.querySelector(".form input[type='password']"),
 toggleIcon = document.querySelector(".form .field i");
 
 toggleIcon.onclick = () =>{
@@ -10,3 +14,5 @@ toggleIcon.onclick = () =>{
     toggleIcon.classList.remove("active");
   }
 }
+</body>
+</html>
