@@ -1,124 +1,63 @@
-package chatbot;
+package bot;
 
-/*
- * ChatBot is a simple chat bot that takes
- * console input and outputs preprogrammed 
- * responses which are found in the separate 
- * responses.txt file.
- */
+import java.util.Scanner;
 
-import java.io.*;
+public class SimpleBot {
+    final static Scanner scanner = new Scanner(System.in); 
 
-class ChatBot {
-    
-    // Print menu to the console.
-    private static void displayMenu(boolean startup) {
-        if(startup) {
-            System.out.println("Please enter a command.");
-        }
-        System.out.print("> ");
+    public static void main(String[] args) {
+        greet("TAJ", "2020");
+        remindName();
+        guessAge();
+        count();
+        test();
+        end();
     }
-    
-    // Get total number of lines in filename.
-    private static int getLines(String filename) {
-        int lines = 0;
-        
-        try(BufferedReader br = new BufferedReader(
-                new FileReader(filename))) {
-            while(br.readLine() != null) lines++;
-        } catch(IOException exc) {
-            System.out.println("I/O Exception: " + exc);
-        }
-        
-        return lines;
-    }
-    
-    // Get user input from the console.
-    private static String getUserInput() {
-        String userInput = null;
-        
-        try {
-            BufferedReader br = new BufferedReader(
-                new InputStreamReader(System.in));
-            
-            userInput = br.readLine();
-        } catch(IOException exc) {
-            System.out.println("I/O Exception: " + exc);
-        }
-        
-        return userInput;
-    }
-    
-    // Get all response lines from filename.
-    private static String[] getResponsesArray(String filename, int lines) {
-        int lineCount = 0;
-        
-        String line;
-        String[] responsesArray = new String[lines];
-        
-        try(BufferedReader br = new BufferedReader(
-                new FileReader(filename))) {
-            
-            do {
-                line = br.readLine();
-                
-                if(line != null) {
-                    responsesArray[lineCount] = line;
-                    lineCount++;
-                }
-            } while(line != null);
-        } catch(FileNotFoundException exc) {
-            System.out.println("FileNotFoundException: " + exc);
-        } catch(IOException exc) {
-            System.out.println("I/O Exception: " + exc);
-        }
-        
-        return responsesArray;
-    }
-    
-    // Get ChatBot response given user-defined input command
-    private static String getResponse(String[] responses, String userInput) {
-        String tag, response;
-        String[] array;
-        
-        for(String responseLine: responses) {
-            if(responseLine != null) {
-                array = responseLine.split(" - ");
-                tag = array[0];
-                response = array[1];
-                
-                if(tag.compareToIgnoreCase(userInput) == 0) {
-                    return response;
-                }
-            }
-        }
-        
-        return "No response...";
-    }
-    
-    // Run ChatBot methods.
-    public static void main(String args[]) {
-        
-        // Set program variables.
-        String userInput, response;
-        String filename = "src/chatbot/responses.txt";
-        
-        int lines = getLines(filename);
-        String[] responsesArray = getResponsesArray(filename, lines);
-        
-        // Display menu with startup message.
-        displayMenu(true);
-        
-        // ChatBot loop.
-        do {
-            userInput = getUserInput();
-            response = getResponse(responsesArray, userInput);
-            
-            System.out.println("Chatbot: " + response);
 
-            if(!userInput.equals("bye")) {
-                displayMenu(false);
-            }
-        } while(!userInput.equals("bye"));
+    static void greet(String assistantName, String birthYear) {
+        System.out.println("Hello! My name is " + assistantName + ".");
+        System.out.println("I was created in " + birthYear + ".");
+        System.out.println("Please, remind me your name.");
+    }
+
+    static void remindName() {
+        String name = scanner.nextLine();
+        System.out.println("What a great name you have, " + name + "!");
+    }
+
+    static void guessAge() {
+        System.out.println("Let me guess your age.");
+        System.out.println("Say me remainders of dividing your age by 3, 5 and 7.");
+        int rem3 = scanner.nextInt();
+        int rem5 = scanner.nextInt();
+        int rem7 = scanner.nextInt();
+        int age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105;
+        System.out.println("Your age is " + age + "; that's a good time to start programming!");
+    }
+
+    static void count() {
+        System.out.println("Now I will prove to you that I can count to any number you want.");
+        int num = scanner.nextInt();
+        for (int i = 0; i <= num; i++) {
+            System.out.printf("%d!\n", i);
+        }
+    }
+
+    static void test() {
+        System.out.println( "Let's test your programming knowledge." );
+        // write your code here
+        System.out.println( "Why do we use methods?" );
+        System.out.println( "1. To repeat a statement multiple times." );
+        System.out.println( "2. To decompose a program into several small subroutines." );
+        System.out.println( "3. To determine the execution time of a program." );
+        System.out.println( "4. To interrupt the execution of a program." );
+        int choice = scanner.nextInt();
+        while (choice == 2) {
+            System.out.println( "Please, try again." );
+            choice = scanner.nextInt();
+        }
+    }
+    static void end() {
+        System.out.println("Congratulations, have a nice day!");
     }
 }
